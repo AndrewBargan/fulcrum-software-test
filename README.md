@@ -56,6 +56,7 @@ npm run test:e2e
 </books>
 ```
 
+- As an example use `books.xml` file in the root of the project.
 - If the XML format is invalid, the import reports an error.
 - If a book with the same `id` already exists, it is ignored.
 
