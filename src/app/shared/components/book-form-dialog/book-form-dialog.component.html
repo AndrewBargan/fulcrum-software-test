@@ -3,17 +3,32 @@
   <div class="book-form">
     <mat-form-field appearance="outline" class="full">
       <mat-label>Author</mat-label>
-      <input matInput [value]="author()" (input)="author.set($any($event.target).value)" />
+      <input
+        #authorInput
+        matInput
+        [formField]="bookForm.author"
+        (keydown.enter)="handleEnter('author', $event)"
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full">
       <mat-label>Title</mat-label>
-      <input matInput [value]="title()" (input)="title.set($any($event.target).value)" />
+      <input
+        #titleInput
+        matInput
+        [formField]="bookForm.title"
+        (keydown.enter)="handleEnter('title', $event)"
+      />
     </mat-form-field>
 
     <div class="actions">
       <button mat-button type="button" (click)="cancel()">Cancel</button>
-      <button mat-flat-button color="primary" (click)="submit()" [disabled]="invalid()">
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="submit()"
+        [disabled]="bookForm().invalid()"
+      >
         Save
       </button>
     </div>
