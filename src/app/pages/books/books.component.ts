@@ -81,15 +81,15 @@ export class BooksComponent implements AfterViewInit {
       });
   }
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
-  protected exportBooks() {
+  protected exportBooks(): void {
     this.service.exportBooks();
   }
 
-  protected async importBooks() {
+  protected async importBooks(): Promise<void> {
     const result = await this.service.importBooks();
 
     let message = '';

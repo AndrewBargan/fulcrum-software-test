@@ -32,16 +32,16 @@ export class BookFormDialogComponent implements AfterViewInit {
     title: this.data?.book?.title ?? '',
   });
 
-  bookForm = form(this.bookModel, (book) => {
+  protected bookForm = form(this.bookModel, (book) => {
     required(book.author, { message: 'Author is required' });
     required(book.title, { message: 'Title is required' });
   });
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     setTimeout(() => this.focusInitialField());
   }
 
-  handleEnter(field: keyof IBookData, event: Event): void {
+  protected handleEnter(field: keyof IBookData, event: Event): void {
     event.preventDefault();
 
     const value = this.bookForm().value();
@@ -57,7 +57,7 @@ export class BookFormDialogComponent implements AfterViewInit {
     this.focusFirstEmptyField();
   }
 
-  submit() {
+  protected submit(): void {
     if (this.bookForm().invalid()) {
       return;
     }
@@ -73,7 +73,7 @@ export class BookFormDialogComponent implements AfterViewInit {
     this.dialogRef.close(result);
   }
 
-  cancel() {
+  protected cancel(): void {
     this.dialogRef.close(null);
   }
 

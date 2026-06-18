@@ -17,13 +17,13 @@ export interface ConfirmDialogData {
 })
 export class ConfirmDialogComponent {
   private dialogRef = inject(MatDialogRef<ConfirmDialogComponent>);
-  data = inject<ConfirmDialogData>(MAT_DIALOG_DATA as any);
+  protected data = inject<ConfirmDialogData>(MAT_DIALOG_DATA as any);
 
-  confirm() {
+  protected confirm(): void {
     this.dialogRef.close(true);
   }
 
-  cancel() {
+  protected cancel(): void {
     this.dialogRef.close(false);
   }
 }
