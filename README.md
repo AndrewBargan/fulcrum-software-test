@@ -1,8 +1,4 @@
-# FulcrumSoftwareTest
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.11.
-
-## Development server
+# Development server
 
 To start a local development server, run:
 
@@ -12,9 +8,9 @@ npm run start
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`
 
-## Development tools
+# Development tools
 
-- Angular 21
+- This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.11.
 - Zoneless approach
 - Signals for reactivity
 - Signal Form for "Add/Edit Book" form
@@ -33,15 +29,15 @@ npm run test:unit
 npm run test:e2e
 ```
 
-## Functionality
+# Functionality
 
-### Book data
+## Book data
 
 - The app starts with sample book data already loaded in the store.
 - You can upload a book XML file using the import button.
 - Data, search keyword, and sorting are persisted even after page refresh.
 
-### Import
+## Import
 
 - Imported XML files must use the following structure:
 
@@ -63,16 +59,6 @@ npm run test:e2e
 - If the XML format is invalid, the import reports an error.
 - If a book with the same `id` already exists, it is ignored.
 
-### Export
+## Export
 
 - Export uses the current table state, including any active search filter or sort order.
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store build artifacts in the `dist/` directory.
