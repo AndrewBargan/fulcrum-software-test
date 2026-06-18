@@ -7,24 +7,43 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 To start a local development server, run:
 
 ```bash
-ng serve
+npm run start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`
 
-## Code scaffolding
+## Functionality
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Initial data
 
-```bash
-ng generate component component-name
+- The app starts with sample book data already loaded in the store.
+- You can upload a book XML file using the import button.
+
+### Import
+
+- Imported XML files must use the following structure:
+
+```xml
+<books>
+  <book>
+    <id>87f0fd10-682e-483c-8f2d-2ef9219e9bc3</id>
+    <author>Hans Christian Andersen</author>
+    <title>The Emperor's New Clothes</title>
+  </book>
+  <book>
+    <id>1ee68934-dea0-4f52-9013-f84c151693e5</id>
+    <author>Hans Christian Andersen</author>
+    <title>The Little Match Girl</title>
+  </book>
+</books>
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- If the XML format is invalid, the import reports an error.
+- If a book with the same `id` already exists, it is ignored.
 
-```bash
-ng generate --help
-```
+### Export
+
+- Export uses the current table state, including any active search filter or sort order.
 
 ## Building
 
@@ -34,11 +53,11 @@ To build the project run:
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This will compile your project and store build artifacts in the `dist/` directory.
 
 ## Running unit tests
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use:
 
 ```bash
 ng test
@@ -51,9 +70,3 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
