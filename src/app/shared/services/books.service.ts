@@ -55,15 +55,16 @@ export class BooksService {
           return;
         }
 
-        try {
-          const reader = new FileReader();
+        const reader = new FileReader();
 
-          reader.onload = () => {
-            if (handled) {
-              return;
-            }
+        reader.onload = () => {
+          if (handled) {
+            return;
+          }
 
+          try {
             handled = true;
+
             removeHiddenInputFileElement();
 
             const xmlData = reader.result as string;
@@ -75,18 +76,30 @@ export class BooksService {
             const result = this.addImportedBooks(books);
 
             resolve(result);
-          };
+          } catch (error) {
+            handled = true;
 
-          reader.readAsText(file);
-        } catch (error) {
+            removeHiddenInputFileElement();
+
+            resolve({
+              wrongXmlFileFormat: true,
+            });
+          }
+        };
+
+        reader.onerror = () => {
+          if (handled) {
+            return;
+          }
+
           handled = true;
 
           removeHiddenInputFileElement();
 
-          resolve({
-            wrongXmlFileFormat: true,
-          });
-        }
+          resolve({ wrongXmlFileFormat: true });
+        };
+
+        reader.readAsText(file);
       };
 
       const filePickedOrCanceled = () => {
