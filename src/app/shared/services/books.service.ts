@@ -123,7 +123,7 @@ export class BooksService {
   }
 
   public exportBooks(): void {
-    const books = this.store.books();
+    const books = this.store.filteredBooks();
 
     const options: Options.JS2XML = { compact: true, spaces: 2 };
 

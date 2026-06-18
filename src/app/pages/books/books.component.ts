@@ -12,6 +12,7 @@ import { IBook } from '../../shared/entities/interfaces';
 import { EOrder } from '../../shared/entities/enums';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { SEARCH_TYPING_DEBOUNCE_MS } from '../../shared/entities/constants';
 
 @Component({
   selector: 'app-books',
@@ -44,7 +45,7 @@ export class BooksComponent implements AfterViewInit, OnDestroy {
 
   constructor() {
     effect(() => {
-      this.dataSource.data = this.store.books();
+      this.dataSource.data = this.store.filteredBooks();
       const filter = this.store.filter();
       this.authorOrder = filter.authorOrder;
       this.titleOrder = filter.titleOrder;
@@ -52,7 +53,7 @@ export class BooksComponent implements AfterViewInit, OnDestroy {
     });
 
     this.searchSubscription = this.searchSubject
-      .pipe(debounceTime(200), distinctUntilChanged())
+      .pipe(debounceTime(SEARCH_TYPING_DEBOUNCE_MS), distinctUntilChanged())
       .subscribe((query) => {
         this.store.search(query);
       });
