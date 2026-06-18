@@ -12,7 +12,7 @@ npm run start
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`
 
-## Development approach
+## Development tools
 
 - Angular 21
 - Zoneless approach
