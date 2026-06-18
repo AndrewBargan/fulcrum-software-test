@@ -10,6 +10,11 @@
         [formField]="bookForm.author"
         (keydown.enter)="handleEnter('author', $event)"
       />
+      @if (bookForm.author().errors() && bookForm.author().touched()) {
+        <mat-error>
+          {{ bookForm.author().errors()[0]?.message }}
+        </mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full">
@@ -21,16 +26,16 @@
         [formField]="bookForm.title"
         (keydown.enter)="handleEnter('title', $event)"
       />
+      @if (bookForm.title().errors() && bookForm.title().touched()) {
+        <mat-error>
+          {{ bookForm.title().errors()[0]?.message }}
+        </mat-error>
+      }
     </mat-form-field>
 
     <div class="actions">
       <button mat-button type="button" (click)="cancel()">Cancel</button>
-      <button
-        mat-flat-button
-        color="primary"
-        (click)="submit()"
-        [disabled]="bookForm().invalid()"
-      >
+      <button mat-flat-button color="primary" (click)="submit()" [disabled]="bookForm().invalid()">
         Save
       </button>
     </div>
