@@ -1,0 +1,15 @@
+:host {
+  .container {
+    padding: 1.2rem;
+  }
+
+  .full {
+    width: 100%;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+  }
+}

@@ -1,0 +1,21 @@
+<div class="container">
+  <h2 mat-dialog-title>{{ data.isEdit ? 'Edit Book' : 'Add Book' }}</h2>
+  <div class="book-form">
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Author</mat-label>
+      <input matInput [value]="author()" (input)="author.set($any($event.target).value)" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Title</mat-label>
+      <input matInput [value]="title()" (input)="title.set($any($event.target).value)" />
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-button type="button" (click)="cancel()">Cancel</button>
+      <button mat-flat-button color="primary" (click)="submit()" [disabled]="invalid()">
+        Save
+      </button>
+    </div>
+  </div>
+</div>

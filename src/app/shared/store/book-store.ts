@@ -11,6 +11,7 @@ import {
 import { BookStoreState } from '../entities/types';
 import { INITIAL_BOOKS } from '../entities/books.mock';
 import { IBook } from '../entities/interfaces';
+import { BOOK_STORE_STATE_KEY } from '../entities/constants';
 
 const initialState: BookStoreState = {
   books: INITIAL_BOOKS,
@@ -25,7 +26,7 @@ export const BookStore = signalStore(
   })),
   withMethods((store) => ({
     _load() {
-      const storedState = localStorage.getItem('bookStoreState');
+      const storedState = localStorage.getItem(BOOK_STORE_STATE_KEY);
 
       if (storedState) {
         const parsedState: BookStoreState = JSON.parse(storedState);
@@ -36,7 +37,7 @@ export const BookStore = signalStore(
     },
     _save() {
       localStorage.setItem(
-        'bookStoreState',
+        BOOK_STORE_STATE_KEY,
         JSON.stringify({ books: store.books(), filter: store.filter() }),
       );
     },

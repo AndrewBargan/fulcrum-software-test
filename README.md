@@ -12,12 +12,34 @@ npm run start
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`
 
+## Development approach
+
+- Angular 21
+- Zoneless approach
+- Signals for reactivity
+- Signal Form for "Add/Edit Book" form
+- NgRx SignalStore for state management
+- RxJs for debouncing search input
+- Angular Material for UI/UX
+- Vitest for unit tests. To execute unit tests, run:
+
+```bash
+npm run test:unit
+```
+
+- Playwright for end-to-end tests. To execute e2e tests, run:
+
+```bash
+npm run test:e2e
+```
+
 ## Functionality
 
-### Initial data
+### Book data
 
 - The app starts with sample book data already loaded in the store.
 - You can upload a book XML file using the import button.
+- Data, search keyword, and sorting are persisted even after page refresh.
 
 ### Import
 
@@ -54,19 +76,3 @@ ng build
 ```
 
 This will compile your project and store build artifacts in the `dist/` directory.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
