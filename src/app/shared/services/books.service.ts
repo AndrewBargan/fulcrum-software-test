@@ -189,7 +189,8 @@ export class BooksService {
       typeof obj === 'object' &&
       typeof obj.id?._text === 'string' &&
       typeof obj.author?._text === 'string' &&
-      typeof obj.title?._text === 'string'
+      typeof obj.title?._text === 'string' &&
+      typeof obj.pages?._text === 'string'
     );
   }
 
@@ -208,6 +209,7 @@ export class BooksService {
           id,
           author: el.author._text,
           title: el.title._text,
+          pages: Number(el.pages?._text),
         };
 
         return acc;

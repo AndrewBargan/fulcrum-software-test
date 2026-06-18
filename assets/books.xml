@@ -3,110 +3,132 @@
     <id>87f0fd10-682e-483c-8f2d-2ef9219e9bc3</id>
     <author>Hans Christian Andersen</author>
     <title>The Emperor's New Clothes</title>
+    <pages>345</pages>
   </book>
   <book>
     <id>1ee68934-dea0-4f52-9013-f84c151693e5</id>
     <author>Hans Christian Andersen</author>
     <title>The Little Match Girl</title>
+    <pages>116</pages>
   </book>
   <book>
     <id>1ee68934-dea0-4f52-9013-f84cec1693e5</id>
     <author>Hans Christian Andersen</author>
     <title>Little Claus and Big Claus</title>
+    <pages>55</pages>
   </book>
   <book>
     <id>1ee68934-dc80-4f52-9013-f84c151693e5</id>
     <author>Hans Christian Andersen</author>
     <title>The Shepherdess and the Chimney Sweep</title>
+    <pages>993</pages>
   </book>
   <book>
     <id>8e7b7e12-7b53-4604-aca5-00c01f708575</id>
     <author>Hans Christian Andersen</author>
     <title>The Little Mermaid</title>
+    <pages>1024</pages>
   </book>
   <book>
     <id>de09ada6-f66f-494e-a337-846c944440a5</id>
     <author>Hans Christian Andersen</author>
     <title>The Snow Queen</title>
+    <pages>865</pages>
   </book>
   <book>
     <id>de09ada6-f66f-494e-a337-8ffc944440a5</id>
     <author>Hans Christian Andersen</author>
     <title>The Swineherd</title>
+    <pages>112</pages>
   </book>
   <book>
     <id>de09ada6-f66f-494e-a337-846c942240a5</id>
     <author>Hans Christian Andersen</author>
     <title>The Traveling Companion</title>
+    <pages>412</pages>
   </book>
   <book>
     <id>b213d8e8-6ced-4b7d-a47e-84a9612435c8</id>
     <author>Hans Christian Andersen</author>
     <title>The Ugly Duckling</title>
+    <pages>662</pages>
   </book>
   <book>
     <id>b213d8e8-6ced-4b7d-a47e-8411612435c8</id>
     <author>Hans Christian Andersen</author>
     <title>Little Tuk</title>
+    <pages>772</pages>
   </book>
   <book>
     <id>4cc59039-08c8-468f-916e-05daa5bf17ce</id>
     <author>Stephen King</author>
     <title>Carrie</title>
+    <pages>43</pages>
   </book>
   <book>
     <id>517119ee-66da-4f22-8a22-897ed88a1f29</id>
     <author>Stephen King</author>
     <title>Firestarter</title>
+    <pages>615</pages>
   </book>
   <book>
     <id>9c7ef93a-62c1-42eb-92c7-7206669bc125</id>
     <author>Stephen King</author>
     <title>It</title>
+    <pages>35</pages>
   </book>
   <book>
     <id>5f6f525e-4404-42b2-a85b-80e041fc354e</id>
     <author>Stephen King</author>
     <title>The Dead Zone</title>
+    <pages>118</pages>
   </book>
   <book>
     <id>2c4610ca-29fa-4b44-86e9-9c30d5dfb6d3</id>
     <author>Stephen King</author>
     <title>The Long Walk</title>
+    <pages>163</pages>
   </book>
   <book>
     <id>2c4610ca-e2fa-4b44-86e9-9c30d5dfb6d3</id>
     <author>Stephen King</author>
     <title>Gwendy's Button Box</title>
+    <pages>998</pages>
   </book>
   <book>
     <id>d84a9131-c0ac-48b3-919d-077771df6843</id>
     <author>Stephen King</author>
     <title>The Shining</title>
+    <pages>1117</pages>
   </book>
   <book>
     <id>18033bf4-2aa5-4b7c-b05b-aa12922d27fc</id>
     <author>Stephen King</author>
     <title>The Stand</title>
+    <pages>94</pages>
   </book>
   <book>
     <id>18033bf4-2aa5-4b7c-b05b-aa12112d27fc</id>
     <author>Stephen King</author>
     <title>Billy Summers</title>
+    <pages>401</pages>
   </book>
   <book>
     <id>18033bf4-2aa5-4b7c-ba4b-aa12922d27fc</id>
     <author>Stephen King</author>
     <title>Never Flinch</title>
+    <pages>505</pages>
   </book>
   <book>
     <id>dc140cbf-1571-4091-9027-c4bb9bff4114</id>
     <author>Stephen King</author>
     <title>The Talisman</title>
+    <pages>616</pages>
   </book>
   <book>
     <id>dc140cbf-1571-4091-90e7-c4bb9bff4114</id>
     <author>Stephen King</author>
     <title>Other Worlds Than These</title>
+    <pages>772</pages>
   </book>
 </books>

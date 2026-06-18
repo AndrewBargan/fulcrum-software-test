@@ -55,7 +55,7 @@ export class BooksComponent implements AfterViewInit {
   private searchSubject = new Subject<string>();
   private destroyRef = inject(DestroyRef);
 
-  displayedColumns = ['author', 'title', 'actions'];
+  displayedColumns = ['author', 'title', 'pages', 'actions'];
 
   dataSource = new MatTableDataSource<IBook>([]);
   authorOrder = computed(() => this.store.filter().authorOrder);

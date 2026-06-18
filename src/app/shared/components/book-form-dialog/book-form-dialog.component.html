@@ -33,6 +33,24 @@
       }
     </mat-form-field>
 
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Pages</mat-label>
+
+      <input
+        #pagesInput
+        matInput
+        aria-label="Pages"
+        type="number"
+        [formField]="bookForm.pages"
+        (keydown.enter)="handleEnter('pages', $event)"
+      />
+      @if (bookForm.pages().errors() && bookForm.pages().touched()) {
+        <mat-error>
+          {{ bookForm.pages().errors()[0]?.message }}
+        </mat-error>
+      }
+    </mat-form-field>
+
     <div class="actions">
       <button mat-button type="button" (click)="cancel()">Cancel</button>
       <button mat-flat-button color="primary" (click)="submit()" [disabled]="bookForm().invalid()">

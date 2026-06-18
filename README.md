@@ -47,11 +47,13 @@ npm run test:e2e
     <id>87f0fd10-682e-483c-8f2d-2ef9219e9bc3</id>
     <author>Hans Christian Andersen</author>
     <title>The Emperor's New Clothes</title>
+    <pages>1134</pages>
   </book>
   <book>
     <id>1ee68934-dea0-4f52-9013-f84c151693e5</id>
     <author>Hans Christian Andersen</author>
     <title>The Little Match Girl</title>
+    <pages>345</pages>
   </book>
 </books>
 ```

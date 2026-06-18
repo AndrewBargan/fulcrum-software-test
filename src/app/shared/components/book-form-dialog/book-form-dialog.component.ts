@@ -4,7 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormField, form, required } from '@angular/forms/signals';
+import { FormField, form, required, min } from '@angular/forms/signals';
 import { IBook } from '../../entities/interfaces';
 
 export interface BookFormData {
@@ -26,15 +26,19 @@ export class BookFormDialogComponent implements AfterViewInit {
 
   @ViewChild('authorInput') private authorInput!: ElementRef<HTMLInputElement>;
   @ViewChild('titleInput') private titleInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('pagesInput') private pagesInput!: ElementRef<HTMLInputElement>;
 
   private bookModel = signal<IBookData>({
     author: this.data?.book?.author ?? '',
     title: this.data?.book?.title ?? '',
+    pages: this.data?.book?.pages ?? 0,
   });
 
   protected bookForm = form(this.bookModel, (book) => {
     required(book.author, { message: 'Author is required' });
     required(book.title, { message: 'Title is required' });
+    required(book.pages, { message: 'Pages should be a number greater than 0' });
+    min(book.pages, 1);
   });
 
   public ngAfterViewInit(): void {
@@ -62,12 +66,13 @@ export class BookFormDialogComponent implements AfterViewInit {
       return;
     }
 
-    const { author, title } = this.bookForm().value();
+    const { author, title, pages } = this.bookForm().value();
 
     const result: IBook = {
       id: this.data?.book?.id ?? crypto.randomUUID(),
       author,
       title,
+      pages,
     };
 
     this.dialogRef.close(result);
@@ -93,6 +98,11 @@ export class BookFormDialogComponent implements AfterViewInit {
 
     if (!value.title) {
       this.titleInput.nativeElement.focus();
+      return true;
+    }
+
+    if (!value.pages) {
+      this.pagesInput.nativeElement.focus();
       return true;
     }
 
