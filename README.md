@@ -31,7 +31,7 @@ npm run test:e2e
 
 # Functionality
 
-## Book data
+## Books Library data
 
 - The app starts with sample book data already loaded in the store.
 - You can upload a book XML file using the import button.

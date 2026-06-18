@@ -12,7 +12,7 @@ export interface BookFormData {
   isEdit?: boolean;
 }
 
-export interface IBookData extends Omit<IBook, 'id'> {}
+export type IBookData = Omit<IBook, 'id'>;
 
 @Component({
   selector: 'app-book-form-dialog',
