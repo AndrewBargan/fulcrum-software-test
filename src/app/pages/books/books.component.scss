@@ -16,6 +16,8 @@
 
   .controls-bar {
     display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1rem;
   }
@@ -38,8 +40,14 @@
     visibility: hidden;
   }
 
-  .data-column {
-    width: 40%;
+  .mat-column-author,
+  .mat-column-title {
+    width: 50%;
+  }
+
+  .mat-column-actions {
+    white-space: nowrap;
+    text-align: center;
   }
 
   .header-button,
