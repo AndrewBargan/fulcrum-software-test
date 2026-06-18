@@ -6,6 +6,7 @@
       <input
         #authorInput
         matInput
+        aria-label="Author"
         [formField]="bookForm.author"
         (keydown.enter)="handleEnter('author', $event)"
       />
@@ -16,6 +17,7 @@
       <input
         #titleInput
         matInput
+        aria-label="Title"
         [formField]="bookForm.title"
         (keydown.enter)="handleEnter('title', $event)"
       />
