@@ -50,12 +50,12 @@
     text-align: center;
   }
 
-  .header-button,
-  .header-actions {
+  .sortable,
+  .non-sortable {
     user-select: none;
   }
 
-  .header-button {
+  .sortable {
     cursor: pointer;
     display: inline-flex;
     align-items: center;

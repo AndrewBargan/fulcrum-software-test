@@ -3,8 +3,8 @@ import { expect, Page, test } from '@playwright/test';
 const storeKey = 'bookStore';
 
 const seedBooks = [
-  { id: 'book-1', author: 'Ada Lovelace', title: 'Notes on Engines', pages: '122' },
-  { id: 'book-2', author: 'Grace Hopper', title: 'Compiler Notes', pages: '743' },
+  { id: 'book-1', author: 'Hans Christian Andersen', title: 'The Little Mermaid', pages: '122' },
+  { id: 'book-2', author: 'Stephen King', title: 'The Long Walk', pages: '743' },
 ];
 
 const seedBookStore = async (page: Page) => {
@@ -37,19 +37,19 @@ test('add book dialog focuses first empty field and submits with enter', async (
 
   await expect(authorInput).toBeFocused();
 
-  await authorInput.fill('Octavia Butler');
+  await authorInput.fill('Stephen King');
   await authorInput.press('Enter');
   await expect(titleInput).toBeFocused();
 
-  await titleInput.fill('Kindred');
+  await titleInput.fill('Firestarter');
   await titleInput.press('Enter');
   await expect(pagesInput).toBeFocused();
 
-  await pagesInput.fill('122');
+  await pagesInput.fill('443');
   await pagesInput.press('Enter');
 
   await expect(page.getByRole('dialog')).toBeHidden();
-  await expect(page.getByRole('row', { name: /Octavia Butler Kindred/ })).toBeVisible();
+  await expect(page.getByRole('row', { name: /Stephen King Firestarter/ })).toBeVisible();
 });
 
 test('edit book dialog focuses the first field when values are filled and submits with enter', async ({
@@ -57,7 +57,7 @@ test('edit book dialog focuses the first field when values are filled and submit
 }) => {
   await page.goto('/');
 
-  const row = page.getByRole('row', { name: /Ada Lovelace Notes on Engines/ });
+  const row = page.getByRole('row', { name: /Hans Christian Andersen The Little Mermaid/ });
   await row.getByRole('button', { name: 'Edit' }).click();
 
   const authorInput = page.getByRole('textbox', { name: 'Author' });
@@ -65,18 +65,18 @@ test('edit book dialog focuses the first field when values are filled and submit
   const pagesInput = page.getByRole('spinbutton', { name: 'Pages' });
 
   await expect(authorInput).toBeFocused();
-  await expect(authorInput).toHaveValue('Ada Lovelace');
-  await expect(titleInput).toHaveValue('Notes on Engines');
+  await expect(authorInput).toHaveValue('Hans Christian Andersen');
+  await expect(titleInput).toHaveValue('The Little Mermaid');
   await expect(pagesInput).toHaveValue('122');
 
-  await titleInput.fill('Analytical Engine Notes');
+  await titleInput.fill('The Ugly Duckling');
   await titleInput.press('Enter');
 
-  await pagesInput.fill('122');
+  await pagesInput.fill('125');
   await pagesInput.press('Enter');
 
   await expect(page.getByRole('dialog')).toBeHidden();
   await expect(
-    page.getByRole('row', { name: /Ada Lovelace Analytical Engine Notes/ }),
+    page.getByRole('row', { name: /Hans Christian Andersen The Ugly Duckling/ }),
   ).toBeVisible();
 });
