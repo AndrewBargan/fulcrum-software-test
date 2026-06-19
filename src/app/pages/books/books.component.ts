@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ViewChild,
-  inject,
-  effect,
-  DestroyRef,
-  computed,
-} from '@angular/core';
+import { Component, viewChild, inject, effect, DestroyRef, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -47,7 +39,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   templateUrl: './books.component.html',
   styleUrl: './books.component.scss',
 })
-export class BooksComponent implements AfterViewInit {
+export class BooksComponent {
   private store = inject(BookStore);
   private service = inject(BooksService);
   private snackBar = inject(MatSnackBar);
@@ -63,11 +55,12 @@ export class BooksComponent implements AfterViewInit {
   searchQuery = computed(() => this.store.filter().query);
   booksCount = computed(() => this.store.filteredBooks().length);
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  private paginator = viewChild.required(MatPaginator);
 
   constructor() {
     effect(() => {
       this.dataSource.data = this.store.filteredBooks();
+      this.dataSource.paginator = this.paginator();
     });
 
     this.searchSubject
@@ -79,10 +72,6 @@ export class BooksComponent implements AfterViewInit {
       .subscribe((query) => {
         this.store.search(query);
       });
-  }
-
-  public ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
   }
 
   protected exportBooks(): void {

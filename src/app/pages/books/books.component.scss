@@ -19,21 +19,16 @@
     justify-content: flex-end;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 1rem;
   }
 
-  .search-bar {
-    flex-grow: 1;
+  .books-actions {
+    flex: 1;
     display: flex;
+    gap: 1rem;
   }
 
   .search-field {
     max-width: 480px;
-  }
-
-  .books-actions {
-    display: flex;
-    gap: 1rem;
   }
 
   .hidden {

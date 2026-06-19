@@ -2,7 +2,13 @@
   <h1 class="title">Books Library</h1>
 
   <div class="controls-bar">
-    <div class="search-bar">
+    <div class="books-actions">
+      <button mat-raised-button color="primary" (click)="addBook()">Add Book</button>
+      <button mat-raised-button color="primary" (click)="importBooks()">Import</button>
+      <button mat-raised-button (click)="exportBooks()">Export</button>
+    </div>
+
+    <div>
       <mat-form-field appearance="outline" class="search-field">
         <mat-label>Search books</mat-label>
         <input
@@ -23,12 +29,6 @@
           <mat-icon fontIcon="close"></mat-icon>
         </button>
       </mat-form-field>
-    </div>
-
-    <div class="books-actions">
-      <button mat-raised-button color="primary" (click)="addBook()">Add Book</button>
-      <button mat-raised-button color="primary" (click)="importBooks()">Import</button>
-      <button mat-raised-button (click)="exportBooks()">Export</button>
     </div>
   </div>
 
