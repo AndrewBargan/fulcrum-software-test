@@ -3,8 +3,8 @@ import { expect, Page, test } from '@playwright/test';
 const storeKey = 'bookStore';
 
 const seedBooks = [
-  { id: 'book-1', author: 'Ada Lovelace', title: 'Notes on Engines' },
-  { id: 'book-2', author: 'Grace Hopper', title: 'Compiler Notes' },
+  { id: 'book-1', author: 'Ada Lovelace', title: 'Notes on Engines', pages: '122' },
+  { id: 'book-2', author: 'Grace Hopper', title: 'Compiler Notes', pages: '743' },
 ];
 
 const seedBookStore = async (page: Page) => {
@@ -33,6 +33,7 @@ test('add book dialog focuses first empty field and submits with enter', async (
 
   const authorInput = page.getByRole('textbox', { name: 'Author' });
   const titleInput = page.getByRole('textbox', { name: 'Title' });
+  const pagesInput = page.getByRole('spinbutton', { name: 'Pages' });
 
   await expect(authorInput).toBeFocused();
 
@@ -42,6 +43,10 @@ test('add book dialog focuses first empty field and submits with enter', async (
 
   await titleInput.fill('Kindred');
   await titleInput.press('Enter');
+  await expect(pagesInput).toBeFocused();
+
+  await pagesInput.fill('122');
+  await pagesInput.press('Enter');
 
   await expect(page.getByRole('dialog')).toBeHidden();
   await expect(page.getByRole('row', { name: /Octavia Butler Kindred/ })).toBeVisible();
@@ -57,14 +62,21 @@ test('edit book dialog focuses the first field when values are filled and submit
 
   const authorInput = page.getByRole('textbox', { name: 'Author' });
   const titleInput = page.getByRole('textbox', { name: 'Title' });
+  const pagesInput = page.getByRole('spinbutton', { name: 'Pages' });
 
   await expect(authorInput).toBeFocused();
   await expect(authorInput).toHaveValue('Ada Lovelace');
   await expect(titleInput).toHaveValue('Notes on Engines');
+  await expect(pagesInput).toHaveValue('122');
 
   await titleInput.fill('Analytical Engine Notes');
   await titleInput.press('Enter');
 
+  await pagesInput.fill('122');
+  await pagesInput.press('Enter');
+
   await expect(page.getByRole('dialog')).toBeHidden();
-  await expect(page.getByRole('row', { name: /Ada Lovelace Analytical Engine Notes/ })).toBeVisible();
+  await expect(
+    page.getByRole('row', { name: /Ada Lovelace Analytical Engine Notes/ }),
+  ).toBeVisible();
 });
