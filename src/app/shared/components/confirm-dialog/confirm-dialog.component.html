@@ -2,7 +2,7 @@
   <h3>{{ data.title || 'Confirm' }}</h3>
   <p>{{ data.message }}</p>
   <div class="actions">
-    <button mat-button (click)="cancel()">Cancel</button>
-    <button mat-flat-button color="warn" (click)="confirm()">Delete</button>
+    <button (click)="cancel()" mat-button>Cancel</button>
+    <button (click)="confirm()" mat-flat-button color="warn" cdkFocusInitial>Delete</button>
   </div>
 </div>
