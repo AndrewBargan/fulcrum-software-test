@@ -3,9 +3,11 @@
 
   <div class="controls-bar">
     <div class="books-actions">
-      <button mat-raised-button color="primary" (click)="addBook()">Add Book</button>
-      <button mat-raised-button color="primary" (click)="importBooks()">Import</button>
-      <button mat-raised-button (click)="exportBooks()">Export</button>
+      <button mat-raised-button (click)="addBook()">Add Book</button>
+      <button mat-raised-button (click)="importBooks()">Import</button>
+      <button mat-raised-button (click)="exportBooks()" [disabled]="!booksCount()">
+        Export{{ booksCount() ? ` (${booksCount()})` : '' }}
+      </button>
     </div>
 
     <div>
