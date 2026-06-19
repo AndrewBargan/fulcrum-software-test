@@ -78,7 +78,9 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  @if (!booksCount()) {
+  @if (!totalBooksCount()) {
+    <div class="empty-state-message">Library is empty</div>
+  } @else if (!booksCount()) {
     <div class="empty-state-message">Nothing found</div>
   }
 
