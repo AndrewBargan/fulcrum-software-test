@@ -93,10 +93,7 @@ export class BooksComponent {
       message = `Imported: ${result.importedCount || 0}, Skipped: ${result.skippedCount || 0}`;
     }
 
-    this.snackBar.open(message, 'Close', {
-      duration: SNACKBAR_DURATION_AFTER_OPERATION_MS,
-      verticalPosition: 'top',
-    });
+    this.showSnackBar(message);
   }
 
   protected sortAuthor(): void {
@@ -128,10 +125,8 @@ export class BooksComponent {
 
     if (result) {
       this.store.addBook(result);
-      this.snackBar.open('Book added', 'Close', {
-        duration: SNACKBAR_DURATION_AFTER_OPERATION_MS,
-        verticalPosition: 'top',
-      });
+
+      this.showSnackBar('Book added');
     }
   }
 
@@ -143,10 +138,7 @@ export class BooksComponent {
     if (result) {
       this.store.editBook(result);
 
-      this.snackBar.open('Book updated', 'Close', {
-        duration: SNACKBAR_DURATION_AFTER_OPERATION_MS,
-        verticalPosition: 'top',
-      });
+      this.showSnackBar('Book updated');
     }
   }
 
@@ -160,10 +152,14 @@ export class BooksComponent {
     if (confirmed) {
       this.store.removeBook(book);
 
-      this.snackBar.open('Book deleted', 'Close', {
-        duration: SNACKBAR_DURATION_AFTER_OPERATION_MS,
-        verticalPosition: 'top',
-      });
+      this.showSnackBar('Book deleted');
     }
+  }
+
+  private showSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: SNACKBAR_DURATION_AFTER_OPERATION_MS,
+      verticalPosition: 'top',
+    });
   }
 }
