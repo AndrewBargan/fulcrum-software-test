@@ -1,6 +1,5 @@
 import { expect, Page, test } from '@playwright/test';
-
-const storeKey = 'bookStore';
+import { BOOK_STORE_STATE_KEY } from '../src/app/shared/entities/constants';
 
 const seedBooks = [
   { id: 'book-1', author: 'Hans Christian Andersen', title: 'The Little Mermaid', pages: '122' },
@@ -18,7 +17,7 @@ const seedBookStore = async (page: Page) => {
         }),
       );
     },
-    { key: storeKey, books: seedBooks },
+    { key: BOOK_STORE_STATE_KEY, books: seedBooks },
   );
 };
 
