@@ -36,7 +36,7 @@ describe('BookFormDialogComponent', () => {
 
   it('focuses the first empty field when opened', async () => {
     await createComponent({
-      book: { id: 'book-1', author: 'Existing Author', title: '' },
+      book: { id: 'book-1', author: 'Existing Author', title: '', pages: 234 },
       isEdit: true,
     });
 
@@ -48,7 +48,7 @@ describe('BookFormDialogComponent', () => {
 
   it('focuses author when all fields are filled', async () => {
     await createComponent({
-      book: { id: 'book-1', author: 'Existing Author', title: 'Existing Title' },
+      book: { id: 'book-1', author: 'Existing Author', title: 'Existing Title', pages: 234 },
       isEdit: true,
     });
 
@@ -64,6 +64,7 @@ describe('BookFormDialogComponent', () => {
 
     const authorInput = input('Author')!;
     const titleInput = input('Title')!;
+    const pagesInput = input('Pages')!;
 
     authorInput.value = 'New Author';
     authorInput.dispatchEvent(new Event('input'));
@@ -72,6 +73,15 @@ describe('BookFormDialogComponent', () => {
     fixture.detectChanges();
 
     expect(document.activeElement).toBe(titleInput);
+    expect(dialogRef.close).not.toHaveBeenCalled();
+
+    titleInput.value = 'Some title';
+    titleInput.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    titleInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
+    fixture.detectChanges();
+
+    expect(document.activeElement).toBe(pagesInput);
     expect(dialogRef.close).not.toHaveBeenCalled();
   });
 
@@ -83,11 +93,14 @@ describe('BookFormDialogComponent', () => {
 
     const authorInput = input('Author')!;
     const titleInput = input('Title')!;
+    const pagesInput = input('Pages')!;
 
     authorInput.value = 'New Author';
     authorInput.dispatchEvent(new Event('input'));
     titleInput.value = 'New Title';
     titleInput.dispatchEvent(new Event('input'));
+    pagesInput.value = '113';
+    pagesInput.dispatchEvent(new Event('input'));
     fixture.detectChanges();
 
     titleInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
@@ -96,6 +109,7 @@ describe('BookFormDialogComponent', () => {
       id: '00000000-0000-4000-8000-000000000000',
       author: 'New Author',
       title: 'New Title',
+      pages: 113,
     });
   });
 });
