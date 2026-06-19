@@ -35,6 +35,10 @@
     display: none;
   }
 
+  .invisible {
+    visibility: hidden;
+  }
+
   .mat-column-author,
   .mat-column-title {
     width: 33%;

@@ -54,6 +54,7 @@ export class BooksComponent {
   titleOrder = computed(() => this.store.filter().titleOrder);
   searchQuery = computed(() => this.store.filter().query);
   booksCount = computed(() => this.store.filteredBooks().length);
+  totalBooksCount = computed(() => this.store.books().length);
 
   private paginator = viewChild.required(MatPaginator);
 
