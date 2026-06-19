@@ -129,13 +129,7 @@ export class BooksComponent implements AfterViewInit {
   }
 
   protected sortIcon(order: EOrder | null): string {
-    if (order === EOrder.Asc) {
-      return '▲';
-    }
-    if (order === EOrder.Desc) {
-      return '▼';
-    }
-    return '';
+    return order === EOrder.Asc ? '▲' : '▼';
   }
 
   protected async addBook(): Promise<void> {
